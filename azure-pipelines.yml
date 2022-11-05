@@ -81,7 +81,9 @@ stages:
 
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : project2-udacity-sinlq3'
+            
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              appType: webAppLinux
