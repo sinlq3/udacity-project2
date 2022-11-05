@@ -4,20 +4,20 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- {{ branch }}
+- main
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '{{ azureServiceConnection.Id }}'
+  azureServiceConnectionId: 'Azure'
 
   # Web app name
-  webAppName: '{{ webAppName }}'
+  webAppName: 'project2-udacity-sinlq3'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: '{{ webAppName }}'
+  environmentName: 'production'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : {{ webAppName }}'
+            displayName: 'Deploy Azure Web App : project2-udacity-sinlq3'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
