@@ -14,7 +14,7 @@ variables:
   webAppName: 'udacity-sinlq3-project2'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  
 
   # Environment name
   environmentName: 'production'
@@ -32,7 +32,7 @@ stages:
   - job: BuildJob
     pool:
       name: Default
-      vmImage: $(vmImageName)
+      
     steps:
     - task: UsePythonVersion@0
       inputs:
@@ -68,7 +68,7 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      vmImage: $(vmImageName)
+      name: Default
     environment: $(environmentName)
     strategy:
       runOnce:
