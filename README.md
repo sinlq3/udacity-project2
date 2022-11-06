@@ -42,4 +42,10 @@ Uncomment file "main_udacity-sinlq3-project2.yml" to use GitHub Action instead o
 
 ## Demo 
 
-I change the text here!
+[![Video 1](https://img.youtube.com/vi/UnTC1Cd87kA/0.jpg)](https://youtu.be/UnTC1Cd87kA)
+
+[![Video 2](https://img.youtube.com/vi/Xo5rMuE4rIQ/0.jpg)](https://youtu.be/Xo5rMuE4rIQ)
+
+[![Video 3](https://img.youtube.com/vi/xANDnObg__g/0.jpg)](https://youtu.be/xANDnObg__g)
+
+
