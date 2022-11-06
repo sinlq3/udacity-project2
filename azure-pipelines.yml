@@ -11,10 +11,10 @@ variables:
   azureServiceConnectionId: 'Azure'
 
   # Web app name
-  webAppName: 'project2-udacity-sinlq3'
+  webAppName: 'udacity-sinlq3-project2'
 
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  
 
   # Environment name
   environmentName: 'production'
@@ -22,22 +22,16 @@ variables:
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  # Python version: 3.7
-  pythonVersion: '3.7'
-
+  
 stages:
 - stage: Build
   displayName: Build stage
   jobs:
   - job: BuildJob
     pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '$(pythonVersion)'
-      displayName: 'Use Python $(pythonVersion)'
-
+      name: Default
+      
+    steps:  
     - script: |
         python -m venv antenv
         source antenv/bin/activate
@@ -67,18 +61,12 @@ stages:
   jobs:
   - deployment: DeploymentJob
     pool:
-      vmImage: $(vmImageName)
+      name: Default
     environment: $(environmentName)
     strategy:
       runOnce:
         deploy:
           steps:
-
-          - task: UsePythonVersion@0
-            inputs:
-              versionSpec: '$(pythonVersion)'
-            displayName: 'Use Python version'
-
           - task: AzureWebApp@1
             displayName: 'Deploy Azure Web App : project2-udacity-sinlq3'
             
