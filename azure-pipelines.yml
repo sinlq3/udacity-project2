@@ -31,12 +31,7 @@ stages:
     pool:
       name: Default
       
-    steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '$(pythonVersion)'
-      displayName: 'Use Python $(pythonVersion)'
-
+    steps:  
     - script: |
         python -m venv antenv
         source antenv/bin/activate
