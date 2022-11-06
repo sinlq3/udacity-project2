@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: 'Azure'
 
   # Web app name
-  webAppName: 'project2-udacity-sinlq3'
+  webAppName: 'udacity-sinlq3-project2'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -22,8 +22,8 @@ variables:
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  # Python version: 3.7
-  pythonVersion: '3.7'
+  # Python version: 3.10
+  pythonVersion: '3.10'
 
 stages:
 - stage: Build
@@ -31,6 +31,7 @@ stages:
   jobs:
   - job: BuildJob
     pool:
+      name: Default
       vmImage: $(vmImageName)
     steps:
     - task: UsePythonVersion@0
